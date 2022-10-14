@@ -63,8 +63,11 @@ void Play_a_game(){
     int no_of_games = 0;
     while(!game_file.eof()){
         getline(game_file, game);
-        cout << no_of_games + 1 << "." << " " << game << endl;
-        no_of_games++;
+        if(game != ""){
+            cout << no_of_games + 1 << "." << " " << game << endl;
+            no_of_games++;
+        }
+        
     }
     game_file.close();
     re:
@@ -109,6 +112,7 @@ void Create_a_game(){
     gamefile << game;
     gamefile.close();
     fstream list("games.txt", ios_base::app);
+
     list << s << '\n';
 }
 
